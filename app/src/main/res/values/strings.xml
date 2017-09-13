@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Athletes</string>
+
+    <string name="font_reg">muli_reg.ttf</string>
+    <string name="font_bold">muli_bold.ttf</string>
+
+</resources>
