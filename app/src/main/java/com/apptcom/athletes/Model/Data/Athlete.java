@@ -49,6 +49,7 @@ public class Athlete implements Parcelable {
     protected Athlete(Parcel in) {
         name = in.readString();
         image = in.readString();
+        brief = in.readString();
     }
 
     public static final Creator<Athlete> CREATOR = new Creator<Athlete>() {
@@ -72,6 +73,7 @@ public class Athlete implements Parcelable {
     public void writeToParcel(Parcel out, int flags) {
         out.writeString(name);
         out.writeString(image);
+        out.writeString(brief);
     }
 
 }

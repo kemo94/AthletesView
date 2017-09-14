@@ -1,7 +1,12 @@
 <resources>
     <string name="app_name">Athletes</string>
 
+    <string name="something_went_wrong">Something went wrong</string>
+
+    <!-- fonts -->
     <string name="font_reg">muli_reg.ttf</string>
     <string name="font_bold">muli_bold.ttf</string>
+    <!-- fonts -->
+
 
 </resources>

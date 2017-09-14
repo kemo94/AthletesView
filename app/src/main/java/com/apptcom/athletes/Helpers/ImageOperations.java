@@ -13,6 +13,7 @@ public abstract class ImageOperations {
             try {
                 Picasso.with(activity).load(imageUrl)
                         .placeholder(placeHolder)
+                        .resize(100,100)
                         .into(imageView);
             } catch (Exception e) {
                 imageView.setImageResource(placeHolder);

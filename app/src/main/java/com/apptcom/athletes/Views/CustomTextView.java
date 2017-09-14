@@ -12,7 +12,6 @@ public class CustomTextView extends android.support.v7.widget.AppCompatTextView 
         super(context);
         this.setTypeface(Fonts.regTypeface(context));
 
-
     }
 
     public CustomTextView(Context context, AttributeSet attrs) {
