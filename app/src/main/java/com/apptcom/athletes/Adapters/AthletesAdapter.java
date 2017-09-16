@@ -6,10 +6,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 
 import java.util.ArrayList;
 
 import com.apptcom.athletes.Activities.ProfileActivity;
+import com.apptcom.athletes.Fragments.ProfileFragment;
 import com.apptcom.athletes.Helpers.ImageOperations;
 import com.apptcom.athletes.Helpers.IntentOperations;
 import com.apptcom.athletes.Holders.AthleteViewHolder;
@@ -22,6 +24,12 @@ public class AthletesAdapter extends RecyclerView.Adapter<AthleteViewHolder> {
 
 
     ArrayList<Athlete> athletesArrayList ;
+
+    private OnItemClickListener onItemClickListener;
+
+    public interface OnItemClickListener {
+        void onItemClick(final int id, final Athlete athlete);
+    }
 
     public AthletesAdapter(Activity activity, ArrayList<Athlete> athletesArrayList){
         this.activity=activity;
@@ -44,9 +52,9 @@ public class AthletesAdapter extends RecyclerView.Adapter<AthleteViewHolder> {
         athleteViewHolder.openProfileLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle bundleData = new Bundle();
-                bundleData.putParcelable("athlete",athletesArrayList.get(position));
-                IntentOperations.goToActivity(activity,ProfileActivity.class,bundleData);
+                if (onItemClickListener != null) {
+                    onItemClickListener.onItemClick(position, athletesArrayList.get(position));
+                }
             }
         });
     }
@@ -56,6 +64,9 @@ public class AthletesAdapter extends RecyclerView.Adapter<AthleteViewHolder> {
         return athletesArrayList.size();
     }
 
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
+    }
 
 }
 

@@ -1,12 +1,10 @@
 package com.apptcom.athletes.Activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 
 import com.apptcom.athletes.Helpers.IntentOperations;
-import com.example.kemos.fainalmoviemalapp.Controller.MainActivity;
 
 import athletes.apptcom.com.athletes.R;
 
