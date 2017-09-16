@@ -1,8 +1,13 @@
 <resources>
     <string name="app_name">Athletes</string>
 
+    <string name="something_went_wrong">Something went wrong</string>
+
+    <!-- fonts -->
     <string name="font_reg">muli_reg.ttf</string>
     <string name="font_bold">muli_bold.ttf</string>
+    <!-- fonts -->
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
