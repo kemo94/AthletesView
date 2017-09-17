@@ -11,12 +11,16 @@ import athletes.apptcom.com.athletes.R;
 public class HomeActivity extends AppCompatActivity {
     HomeFragment homeFragment;
     ProfileFragment profileFragment;
+    boolean isDataFetched = false ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         onRetainNonConfigurationInstance();
 
-        if (!Utility.checkNetworkStatus(this))
+        if (savedInstanceState != null)
+            isDataFetched = savedInstanceState.getBoolean("isDataFetched");
+
+        if (!Utility.checkNetworkStatus(this) && !isDataFetched )
             DialogsHelper.showNoInternetDialog(this);
 
         else
@@ -25,6 +29,13 @@ public class HomeActivity extends AppCompatActivity {
                 homeFragment =(HomeFragment)getSupportFragmentManager().findFragmentById(R.id.home_fragment);
                 profileFragment =(ProfileFragment)  getSupportFragmentManager().findFragmentById(R.id.profile_fragment);
                 homeFragment.setProfileFragment(profileFragment);
+                isDataFetched = true;
             }
      }
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putBoolean("isDataFetched", isDataFetched);
+
+        super.onSaveInstanceState(outState);
+    }
 }
