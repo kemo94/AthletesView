@@ -120,7 +120,8 @@ public class HomeFragment extends Fragment {
 
                             athletesArrayList.addAll(response.body().getAthletesArrayList());
                             athletesAdapter.notifyDataSetChanged();
-                            profileFragment.setAthlete(athletesArrayList.get(0));
+                            if ( profileFragment != null )
+                                profileFragment.setAthlete(athletesArrayList.get(0));
                         }
 
                         break;
@@ -150,8 +151,10 @@ public class HomeFragment extends Fragment {
 
         if ( athletesArrayList.size() == 0 )
             prepareView();
-        else
-            profileFragment.setAthlete(athletesArrayList.get(currentPosition));
+        else {
+            if (profileFragment != null)
+              profileFragment.setAthlete(athletesArrayList.get(currentPosition));
+        }
 
         super.onResume();
     }
