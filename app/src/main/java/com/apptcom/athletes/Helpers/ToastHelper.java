@@ -8,7 +8,8 @@ public abstract class ToastHelper {
 
 
     public static void showToast(String message, Activity activity) {
-        Toast.makeText(activity,message,Toast.LENGTH_LONG).show();
+        if ( activity !=null )
+           Toast.makeText(activity,message,Toast.LENGTH_LONG).show();
     }
 
 

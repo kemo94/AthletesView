@@ -7,6 +7,9 @@
     <string name="font_reg">muli_reg.ttf</string>
     <string name="font_bold">muli_bold.ttf</string>
     <!-- fonts -->
+    <string name="refresh">Refresh</string>
+    <string name="check_internet">Check your internet connection</string>
+    <string name="no_connection">No internet connection</string>
 
 
 </resources>

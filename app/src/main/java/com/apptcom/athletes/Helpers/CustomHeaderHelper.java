@@ -15,7 +15,7 @@ public abstract class CustomHeaderHelper {
 
         Toolbar toolbar = (Toolbar)activity.findViewById(R.id.toolbar);
         TextView titleTxv = (TextView)toolbar.findViewById(R.id.toolbar_title);
-        ImageView icBackImv = (ImageView)toolbar.findViewById(R.id.ic_back);
+        ImageView icBackImv = (ImageView)toolbar.findViewById(R.id.ic_back_imv);
 
         icBackImv.setOnClickListener(new View.OnClickListener() {
             @Override
