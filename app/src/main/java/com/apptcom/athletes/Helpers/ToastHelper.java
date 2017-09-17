@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.widget.Toast;
 
 
-public abstract class ToastOperations {
+public abstract class ToastHelper {
 
 
     public static void showToast(String message, Activity activity) {

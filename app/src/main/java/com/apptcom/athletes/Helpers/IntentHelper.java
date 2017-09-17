@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
-public abstract class IntentOperations {
+public abstract class IntentHelper {
 
 
     // go to another activity

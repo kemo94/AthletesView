@@ -5,11 +5,8 @@ import com.apptcom.athletes.Model.Responses.AthletesResponse;
 import retrofit2.Call;
 import retrofit2.http.GET;
 
-/**
- * Created by kemo on 9/13/2017.
- */
+public class APIHelper {
 
-public class API {
     public static final String BASE_URL = "https://gist.githubusercontent.com" ;
 
     public interface GetAthletesApi {

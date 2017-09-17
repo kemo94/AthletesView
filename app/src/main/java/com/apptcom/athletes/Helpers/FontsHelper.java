@@ -5,12 +5,7 @@ import android.graphics.Typeface;
 
 import athletes.apptcom.com.athletes.R;
 
-
-/**
- * Created by as on 8/1/2017.
- */
-
-public abstract class Fonts {
+public abstract class FontsHelper {
 
     public static Typeface regTypeface(Context context)
     {

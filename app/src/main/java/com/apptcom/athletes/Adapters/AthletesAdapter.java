@@ -1,19 +1,14 @@
 package com.apptcom.athletes.Adapters;
 
 import android.app.Activity;
-import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 
 import java.util.ArrayList;
 
-import com.apptcom.athletes.Activities.ProfileActivity;
-import com.apptcom.athletes.Fragments.ProfileFragment;
-import com.apptcom.athletes.Helpers.ImageOperations;
-import com.apptcom.athletes.Helpers.IntentOperations;
+import com.apptcom.athletes.Helpers.ImageHelper;
 import com.apptcom.athletes.Holders.AthleteViewHolder;
 import com.apptcom.athletes.Model.Data.Athlete;
 
@@ -46,7 +41,7 @@ public class AthletesAdapter extends RecyclerView.Adapter<AthleteViewHolder> {
     @Override
     public void onBindViewHolder(final AthleteViewHolder athleteViewHolder, final int position) {
         athleteViewHolder.athleteNameTxv.setText(athletesArrayList.get(position).getName());
-        ImageOperations.downloadImage(activity,athletesArrayList.get(position).getImage() , R.drawable.holder_athlete,athleteViewHolder.athleteImageImv);
+        ImageHelper.downloadImage(activity,athletesArrayList.get(position).getImage() , R.drawable.holder_athlete,athleteViewHolder.athleteImageImv);
 
 
         athleteViewHolder.openProfileLayout.setOnClickListener(new View.OnClickListener() {

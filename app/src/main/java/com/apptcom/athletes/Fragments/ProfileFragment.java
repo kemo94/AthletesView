@@ -1,17 +1,13 @@
 package com.apptcom.athletes.Fragments;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.apptcom.athletes.Activities.ProfileActivity;
-import com.apptcom.athletes.Helpers.CustomHeader;
-import com.apptcom.athletes.Helpers.ImageOperations;
+import com.apptcom.athletes.Helpers.ImageHelper;
 import com.apptcom.athletes.Model.Data.Athlete;
 
 import athletes.apptcom.com.athletes.R;
@@ -50,7 +46,7 @@ public class ProfileFragment extends Fragment {
     }
 
     public void prepareView(){
-        ImageOperations.downloadImage(getActivity(),athlete.getImage() , R.drawable.holder_athlete , athleteImageImv);
+        ImageHelper.downloadImage(getActivity(),athlete.getImage() , R.drawable.holder_athlete , athleteImageImv);
         athleteNameTxv.setText(athlete.getName());
         athleteBriefTxv.setText(athlete.getBrief());
     }

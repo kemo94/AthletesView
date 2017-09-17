@@ -7,15 +7,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 
-import com.apptcom.athletes.Activities.HomeActivity;
 import com.apptcom.athletes.Activities.ProfileActivity;
 import com.apptcom.athletes.Adapters.AthletesAdapter;
-import com.apptcom.athletes.Helpers.API;
-import com.apptcom.athletes.Helpers.DialogsOperations;
-import com.apptcom.athletes.Helpers.IntentOperations;
-import com.apptcom.athletes.Helpers.ToastOperations;
+import com.apptcom.athletes.Helpers.APIHelper;
+import com.apptcom.athletes.Helpers.DialogsHelper;
+import com.apptcom.athletes.Helpers.IntentHelper;
+import com.apptcom.athletes.Helpers.ToastHelper;
 import com.apptcom.athletes.Model.Data.Athlete;
 import com.apptcom.athletes.Model.Responses.AthletesResponse;
 
@@ -40,18 +38,18 @@ public class HomeFragment extends Fragment {
     int currentPosition ;
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setRetainInstance(true);
+
         if (savedInstanceState != null)
             athletesArrayList = savedInstanceState.getParcelableArrayList("athleteList");
 
-        super.onCreate(savedInstanceState);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-
-        setRetainInstance(true);
 
         initView(view);
         listeners();
@@ -85,7 +83,7 @@ public class HomeFragment extends Fragment {
                 }else{
                     Bundle bundleData = new Bundle();
                     bundleData.putParcelable("athlete",athletesArrayList.get(position));
-                    IntentOperations.goToActivity(getActivity(),ProfileActivity.class,bundleData);
+                    IntentHelper.goToActivity(getActivity(),ProfileActivity.class,bundleData);
 
                 }
             }
@@ -99,20 +97,20 @@ public class HomeFragment extends Fragment {
     }
 
     public void getAthletes(){
-        DialogsOperations.viewLoading(getActivity());
+        DialogsHelper.viewLoading(getActivity());
 
         Retrofit retrofit = new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl(API.BASE_URL)
+                .baseUrl(APIHelper.BASE_URL)
                 .build();
 
-        API.GetAthletesApi apiInterface = retrofit.create( API.GetAthletesApi.class);
+        APIHelper.GetAthletesApi apiInterface = retrofit.create( APIHelper.GetAthletesApi.class);
         callAthleteApi = apiInterface.getAthletes();
 
         callAthleteApi.enqueue(new Callback<AthletesResponse>() {
             @Override
             public void onResponse(Call<AthletesResponse> call, Response<AthletesResponse> response) {
-                DialogsOperations.dismissLoading();
+                DialogsHelper.dismissLoading();
                 switch (response.code()) {
 
                     case 200:
@@ -126,14 +124,14 @@ public class HomeFragment extends Fragment {
 
                         break;
                     default:
-                        ToastOperations.showToast(getResources().getString(R.string.something_went_wrong),getActivity());
+                        ToastHelper.showToast(getResources().getString(R.string.something_went_wrong),getActivity());
                 }
             }
 
             @Override
             public void onFailure(Call<AthletesResponse> call, Throwable t) {
-                DialogsOperations.dismissLoading();
-                ToastOperations.showToast(getResources().getString(R.string.something_went_wrong),getActivity());
+                DialogsHelper.dismissLoading();
+                ToastHelper.showToast(getResources().getString(R.string.something_went_wrong),getActivity());
             }
         });
 

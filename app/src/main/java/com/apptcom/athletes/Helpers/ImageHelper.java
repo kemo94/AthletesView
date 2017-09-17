@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.widget.ImageView;
 import com.squareup.picasso.Picasso;
 
-public abstract class ImageOperations {
+public abstract class ImageHelper {
 
     public static void downloadImage(Activity activity , String imageUrl , int placeHolder, ImageView imageView){
 

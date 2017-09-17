@@ -22,6 +22,5 @@ public class AthleteViewHolder extends RecyclerView.ViewHolder   {
         athleteImageImv = (CircleImageView) view.findViewById(R.id.athleteImage_imv);
         openProfileLayout = (LinearLayout) view.findViewById(R.id.openProfile_layout);
 
-
     }
 }

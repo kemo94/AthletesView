@@ -6,11 +6,8 @@ import android.view.Window;
 
 import athletes.apptcom.com.athletes.R;
 
-/**
- * Created by m on 9/14/2017.
- */
 
-public class DialogsOperations {
+public class DialogsHelper {
 
 
     public static Dialog dialog;

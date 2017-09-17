@@ -4,7 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.apptcom.athletes.Fragments.ProfileFragment;
-import com.apptcom.athletes.Helpers.CustomHeader;
+import com.apptcom.athletes.Helpers.CustomHeaderHelper;
 import com.apptcom.athletes.Model.Data.Athlete;
 
 import athletes.apptcom.com.athletes.R;
@@ -18,14 +18,13 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-
         initData();
         initView();
         prepareView();
     }
     public void initView(){
 
-        CustomHeader.setToolbar(ProfileActivity.this,athlete.getName());
+        CustomHeaderHelper.setToolbar(ProfileActivity.this,athlete.getName());
         profileFragment = (ProfileFragment) getSupportFragmentManager().findFragmentById(R.id.profile_fragment);
 
     }
